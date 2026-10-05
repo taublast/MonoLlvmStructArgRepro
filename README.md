@@ -1,5 +1,7 @@
 # Mono LLVM AOT on Android arm64: a struct argument passed on the stack arrives corrupted
 
+Reported as [dotnet/runtime#135197](https://github.com/dotnet/runtime/issues/135197).
+
 A plain .NET Android app, no other libraries. In a Release build with `RunAOTCompilation` and
 `EnableLLVM`, a method receives wrong values for a 4-float struct argument that is passed on the
 stack, when the caller and the callee are not both compiled by LLVM. No exception, no crash: the
