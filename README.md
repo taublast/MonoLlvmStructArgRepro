@@ -44,9 +44,17 @@ The app shows the same lines on screen. For the baseline, delete `bin` and `obj`
 
 ## Environment
 
-- .NET SDK 10.0.401, Microsoft.NETCore.App 10.0.12, android workload 36.1.69/10.0.100, Windows 11 host
-- `net10.0-android`, Release, `RunAOTCompilation=true`, `EnableLLVM=true`, `AndroidEnableProfiledAot=false`, `RuntimeIdentifier=android-arm64`
+- Host: Windows 11 x64 (10.0.26200)
+- .NET SDK 10.0.401 (commit e34a38d2ae), workload set 10.0.400.1
+- android workload 36.1.69/10.0.100: Microsoft.Android.Sdk.Windows 36.1.69, Microsoft.Android.Runtime.Mono.36.android-arm64 36.1.69
+- Mono runtime pack: Microsoft.NETCore.App.Runtime.Mono.android-arm64 10.0.11
+- AOT compiler: Microsoft.NETCore.App.Runtime.AOT.win-x64.Cross.android-arm64 10.0.11 (`mono-aot-cross.exe --llvm`, `mtriple=aarch64-linux-android`)
+- Android SDK build-tools 36.0.0, target platform android-36, Microsoft OpenJDK 21.0.8
+- Project: `net10.0-android`, Release, `RunAOTCompilation=true`, `EnableLLVM=true`, `AndroidEnableProfiledAot=false`, `RuntimeIdentifier=android-arm64`, `TrimMode=full`
 - Device: Blackview BV8800 (MediaTek mt6781, arm64-v8a), Android 11
+
+The original app also showed it in its Play Store build made on GitHub Actions
+(global.json: SDK 10.0.104 with `rollForward: latestFeature`, workload set 10.0.301).
 
 ## Where it was found
 
